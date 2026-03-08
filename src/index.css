@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Paytone+One&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Paytone One", ui-sans-serif, system-ui, sans-serif;
+
+  --color-boteco-yellow: #F2C94C;
+  --color-boteco-red: #C0392B;
+  --color-boteco-black: #111111;
+  --color-boteco-white: #FFFFFF;
+  --color-boteco-metal: #8C8C8C;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-boteco-white);
+  color: var(--color-boteco-black);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+/* Custom mosaic floor pattern */
+.bg-mosaic {
+  background-color: #ffffff;
+  background-image: radial-gradient(#111111 2px, transparent 2px), radial-gradient(#111111 2px, transparent 2px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+  opacity: 0.05;
+}
+
+/* Custom yellow tiles pattern */
+.bg-tiles {
+  background-color: #F2C94C;
+  background-image: 
+    linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
