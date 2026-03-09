@@ -657,7 +657,12 @@ export default function App() {
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto text-lg">
               Siga a gente no Instagram{" "}
-              <a href="#" className="text-boteco-red font-bold hover:underline">
+              <a
+                href="https://www.instagram.com/botecosombrinha?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-boteco-red font-bold hover:underline"
+              >
                 @botecosombrinha
               </a>
             </p>
@@ -675,12 +680,15 @@ export default function App() {
                   key={index}
                   className="w-full md:w-1/3 flex-shrink-0 px-2"
                 >
-                  <motion.div
+                  <motion.a
+                    href="https://www.instagram.com/botecosombrinha?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                    target="_blank"
+                    rel="noopener noreferrer"
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
-                    className="aspect-square overflow-hidden relative group cursor-pointer rounded-xl"
+                    className="aspect-square overflow-hidden relative group cursor-pointer rounded-xl block"
                   >
                     <img
                       src={img}
@@ -691,7 +699,7 @@ export default function App() {
                     <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <Instagram className="text-white w-10 h-10" />
                     </div>
-                  </motion.div>
+                  </motion.a>
                 </div>
               ))}
             </div>
@@ -861,7 +869,9 @@ export default function App() {
               </p>
               <div className="flex space-x-4">
                 <a
-                  href="#"
+                  href="https://www.instagram.com/botecosombrinha?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-gray-800 p-3 rounded-full hover:bg-boteco-red transition-colors"
                 >
                   <Instagram className="w-5 h-5" />
