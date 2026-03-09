@@ -14,6 +14,7 @@ import {
   GlassWater,
   ChevronRight,
   MessageCircle,
+  Star,
 } from "lucide-react";
 
 // --- DATA ---
@@ -113,6 +114,45 @@ const galleryImages = [
   "https://i.ibb.co/nM1fcMrW/Save-Clip-App-643567154-17930504226198206-1646426984778458567-n.jpg",
 ];
 
+const reviews = [
+  {
+    name: "Kevin Franco",
+    meta: "Local Guide · 14 avaliações · 6 fotos",
+    time: "3 meses atrás",
+    text: "O espaço é lindo, a comida é maravilhosa, e muito bem servida, até demais eu diria - É bem temperada e as bebidas são excelentes! O atendimento é muito bom também. … Mais",
+  },
+  {
+    name: "Giovana Martins",
+    meta: "Local Guide · 127 avaliações · 417 fotos",
+    time: "2 semanas atrás",
+    text: "Gostei bastante do bar!\nOs garçons são rápidos e atenciosos.\nA cerveja que pedimos estava bem gelada e a porção de linguiça acebolada na … Mais",
+  },
+  {
+    name: "Laila Elmajdob",
+    meta: "Local Guide · 11 avaliações · 20 fotos",
+    time: "2 meses atrás",
+    text: "Um dos melhores da cidade de São Paulo! Cardápio recheado de opções, desde porções a almoço, super bem servidos! Bons drinks, ambiente bem familiar e um atendimento impecável! Um agradecimento especial ao Murilo que atendeu o grupo sempre muito simpático e com ótimas recomendações! Voltaremos com certeza!! Mais",
+  },
+  {
+    name: "FAIÇAL TAKIEDDINE",
+    meta: "Local Guide · 566 avaliações · 485 fotos",
+    time: "3 meses atrás",
+    text: "Excelente infraestrutura para o mais tradicional Bar/Boteco à beira de calçada na rua, numa das esquinas da Zona Norte. … Mais",
+  },
+  {
+    name: "Amanda Yumi Kochi",
+    meta: "1 avaliação · 2 fotos",
+    time: "3 semanas atrás",
+    text: "Sempre frequento o bar Sombrinha, o atendimento é excelente, sempre atentos, principalmente o garçom Bruno!! Recomendo!! A feijoada é deliciosa e super bem servida! Ahh e o Bolovo, peçam!! Mais",
+  },
+  {
+    name: "Andrea",
+    meta: "Local Guide · 19 avaliações · 34 fotos",
+    time: "2 semanas atrás",
+    text: "Tudo muito incrível!\nBoteco de alma , atendimento excelente em todos os momentos, atenciosos , hospitaleiros , chopp gelado , petiscos de boteco, Gabriel fez a experiência ser muito … Mais",
+  },
+];
+
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState("petiscos");
@@ -184,6 +224,12 @@ export default function App() {
                 Experiência
               </button>
               <button
+                onClick={() => scrollTo("avaliacoes")}
+                className="hover:text-boteco-yellow transition-colors font-medium"
+              >
+                Avaliações
+              </button>
+              <button
                 onClick={() => scrollTo("localizacao")}
                 className="hover:text-boteco-yellow transition-colors font-medium"
               >
@@ -250,6 +296,12 @@ export default function App() {
                 className="text-white hover:text-boteco-yellow block px-3 py-2 text-lg font-medium"
               >
                 Experiência
+              </button>
+              <button
+                onClick={() => scrollTo("avaliacoes")}
+                className="text-white hover:text-boteco-yellow block px-3 py-2 text-lg font-medium"
+              >
+                Avaliações
               </button>
               <button
                 onClick={() => scrollTo("localizacao")}
@@ -646,6 +698,52 @@ export default function App() {
         </div>
       </section>
 
+      {/* --- AVALIAÇÕES --- */}
+      <section id="avaliacoes" className="py-20 bg-boteco-yellow">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-boteco-black font-display text-4xl md:text-5xl mb-4">
+              O que dizem da gente
+            </h2>
+            <p className="text-boteco-black/80 max-w-2xl mx-auto text-lg">
+              Avaliações reais de quem já veio tomar uma com a gente.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {reviews.map((review, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white p-6 rounded-2xl shadow-lg flex flex-col h-full"
+              >
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center text-xl font-bold text-gray-500 shrink-0">
+                    {review.name.charAt(0)}
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-boteco-black">{review.name}</h3>
+                    <p className="text-xs text-gray-500">{review.meta}</p>
+                    <div className="flex items-center mt-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                      ))}
+                      <span className="text-xs text-gray-400 ml-2">{review.time}</span>
+                    </div>
+                  </div>
+                </div>
+                <p className="text-gray-700 text-sm flex-grow whitespace-pre-line">
+                  "{review.text}"
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* --- LOCALIZAÇÃO --- */}
       <section id="localizacao" className="py-20 bg-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -788,6 +886,14 @@ export default function App() {
                     className="text-gray-400 hover:text-boteco-yellow transition-colors"
                   >
                     Galeria
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollTo("avaliacoes")}
+                    className="text-gray-400 hover:text-boteco-yellow transition-colors"
+                  >
+                    Avaliações
                   </button>
                 </li>
                 <li>
