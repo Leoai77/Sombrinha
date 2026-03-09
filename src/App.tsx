@@ -91,6 +91,8 @@ const galleryImages = [
   "https://i.ibb.co/R4BWH9MQ/Save-Clip-App-643531827-17930226828198206-6579603215994543764-n.jpg",
   "https://i.ibb.co/21JKMrXD/Save-Clip-App-643528853-17930073879198206-1284768129369289210-n.jpg",
   "https://i.ibb.co/nM1fcMrW/Save-Clip-App-643567154-17930504226198206-1646426984778458567-n.jpg",
+  "https://i.ibb.co/fYWcBkfz/Save-Clip-App-628737152-17928202518198206-2106937667159170947-n.jpg",
+  "https://i.ibb.co/8g3Z6rcQ/Save-Clip-App-602823940-17921702973198206-6018739691602534047-n.jpg",
 ];
 
 const reviews = [
@@ -136,6 +138,25 @@ export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState("classicos");
   const [scrolled, setScrolled] = useState(false);
+  const [galleryIndex, setGalleryIndex] = useState(0);
+  const [itemsPerView, setItemsPerView] = useState(3);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setItemsPerView(window.innerWidth < 768 ? 1 : 3);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const maxGalleryIndex = Math.max(0, galleryImages.length - itemsPerView);
+
+  useEffect(() => {
+    if (galleryIndex > maxGalleryIndex) {
+      setGalleryIndex(maxGalleryIndex);
+    }
+  }, [maxGalleryIndex, galleryIndex]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -642,26 +663,52 @@ export default function App() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
-            {galleryImages.map((img, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="aspect-square overflow-hidden relative group cursor-pointer"
-              >
-                <img
-                  src={img}
-                  alt={`Galeria ${index + 1}`}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <Instagram className="text-white w-10 h-10" />
+          <div className="relative overflow-hidden px-4">
+            <div
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{
+                transform: `translateX(-${galleryIndex * (100 / itemsPerView)}%)`,
+              }}
+            >
+              {galleryImages.map((img, index) => (
+                <div
+                  key={index}
+                  className="w-full md:w-1/3 flex-shrink-0 px-2"
+                >
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    className="aspect-square overflow-hidden relative group cursor-pointer rounded-xl"
+                  >
+                    <img
+                      src={img}
+                      alt={`Galeria ${index + 1}`}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <Instagram className="text-white w-10 h-10" />
+                    </div>
+                  </motion.div>
                 </div>
-              </motion.div>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex justify-center mt-8 gap-2">
+            {Array.from({ length: maxGalleryIndex + 1 }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setGalleryIndex(i)}
+                className={`w-3 h-3 rounded-full transition-colors ${
+                  galleryIndex === i
+                    ? "bg-boteco-red"
+                    : "bg-gray-300 hover:bg-gray-400"
+                }`}
+                aria-label={`Ir para foto ${i + 1}`}
+              />
             ))}
           </div>
         </div>
