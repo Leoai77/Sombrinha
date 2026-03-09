@@ -19,91 +19,70 @@ import {
 
 // --- DATA ---
 const menuCategories = [
-  {
-    id: "petiscos",
-    name: "Petiscos de Boteco",
-    icon: <Utensils className="w-5 h-5" />,
-  },
-  { id: "porcoes", name: "Porções", icon: <Utensils className="w-5 h-5" /> },
-  {
-    id: "chapa",
-    name: "Pratos na Chapa",
-    icon: <Utensils className="w-5 h-5" />,
-  },
-  { id: "cervejas", name: "Cervejas", icon: <Beer className="w-5 h-5" /> },
-  { id: "drinks", name: "Drinks", icon: <GlassWater className="w-5 h-5" /> },
-  {
-    id: "refrigerantes",
-    name: "Refrigerantes",
-    icon: <Coffee className="w-5 h-5" />,
-  },
+  { id: "classicos", name: "Clássicos Repaginados", icon: <GlassWater className="w-5 h-5" /> },
+  { id: "autorais", name: "Drinks Autorais", icon: <GlassWater className="w-5 h-5" /> },
+  { id: "batidas", name: "Batidas", icon: <GlassWater className="w-5 h-5" /> },
+  { id: "caipirinhas", name: "Caipirinhas", icon: <GlassWater className="w-5 h-5" /> },
+  { id: "chopp", name: "Chopp Brahma", icon: <Beer className="w-5 h-5" /> },
+  { id: "cervejas600", name: "Cervejas 600ml", icon: <Beer className="w-5 h-5" /> },
+  { id: "cervejasln", name: "Cervejas Long Neck", icon: <Beer className="w-5 h-5" /> },
+  { id: "softdrinks", name: "Soft Drinks", icon: <Coffee className="w-5 h-5" /> },
 ];
 
 const menuItems = [
-  {
-    id: 1,
-    category: "petiscos",
-    name: "Torresmo",
-    description: "Panceta suína frita, crocante por fora e macia por dentro.",
-    price: "R$ 28,00",
-    image: "https://picsum.photos/seed/torresmo/400/300",
-  },
-  {
-    id: 2,
-    category: "petiscos",
-    name: "Pastel de Boteco",
-    description: "Porção com 6 unidades. Sabores: carne, queijo ou palmito.",
-    price: "R$ 32,00",
-    image: "https://picsum.photos/seed/pastel/400/300",
-  },
-  {
-    id: 3,
-    category: "chapa",
-    name: "Picanha na Chapa",
-    description: "Picanha fatiada acebolada, servida com pão de alho e farofa.",
-    price: "R$ 89,00",
-    image: "https://picsum.photos/seed/picanha/400/300",
-  },
-  {
-    id: 4,
-    category: "porcoes",
-    name: "Batata Frita",
-    description: "Porção generosa de batata frita com queijo e bacon.",
-    price: "R$ 35,00",
-    image: "https://picsum.photos/seed/batata/400/300",
-  },
-  {
-    id: 5,
-    category: "porcoes",
-    name: "Linguiça Acebolada",
-    description: "Linguiça toscana fatiada e acebolada, acompanha pão francês.",
-    price: "R$ 42,00",
-    image: "https://picsum.photos/seed/linguica/400/300",
-  },
-  {
-    id: 6,
-    category: "drinks",
-    name: "Caipirinha",
-    description: "A clássica brasileira. Cachaça, limão, açúcar e gelo.",
-    price: "R$ 22,00",
-    image: "https://picsum.photos/seed/caipirinha/400/300",
-  },
-  {
-    id: 7,
-    category: "cervejas",
-    name: "Cerveja 600ml",
-    description: "Original, Brahma, Skol ou Heineken. Bem gelada!",
-    price: "R$ 16,00",
-    image: "https://picsum.photos/seed/cerveja/400/300",
-  },
-  {
-    id: 8,
-    category: "refrigerantes",
-    name: "Refrigerante Lata",
-    description: "Coca-Cola, Guaraná, Fanta ou Sprite.",
-    price: "R$ 7,00",
-    image: "https://picsum.photos/seed/refri/400/300",
-  },
+  // Clássicos Repaginados
+  { id: 1, category: "classicos", name: "Bombeirinho", description: "Cachaça branca, grenadine, pimenta da jamaica, amburana, anis estrelado e cardamomo", price: "R$ 34,00", image: "https://picsum.photos/seed/bombeirinho/400/300" },
+  { id: 2, category: "classicos", name: "Rabo de galo", description: "Cachaça branca, blend de vermutes e laranja bahia", price: "R$ 34,00", image: "https://picsum.photos/seed/rabodegalo/400/300" },
+  { id: 3, category: "classicos", name: "Maria mole", description: "Conhaque Dreher, martini bianco, laranja bahia e casa de pitanga", price: "R$ 33,00", image: "https://picsum.photos/seed/mariamole/400/300" },
+  { id: 4, category: "classicos", name: "Jorge amado", description: "Cachaça Gabriela, maracujá, limão tahiti, açúcar demerara", price: "R$ 35,00", image: "https://picsum.photos/seed/jorgeamado/400/300" },
+  { id: 5, category: "classicos", name: "Negroni", description: "Gin, Campari, blend de vermutes e laranja bahia", price: "R$ 36,00", image: "https://picsum.photos/seed/negroni/400/300" },
+  { id: 6, category: "classicos", name: "Spritz Clássicos", description: "Gin Tônica / Aperol Spritz / Cynar Tônica", price: "R$ 36,00", image: "https://picsum.photos/seed/spritz/400/300" },
+
+  // Drinks Autorais
+  { id: 7, category: "autorais", name: "Sombrinha", description: "Rum ouro, cachaça Gabriela, Campari com cumaru e xarope de banana", price: "R$ 36,00", image: "https://picsum.photos/seed/sombrinha/400/300" },
+  { id: 8, category: "autorais", name: "Marambaia", description: "Cachaça branca com baunilha, jambu, hortelã e água de coco", price: "R$ 36,00", image: "https://picsum.photos/seed/marambaia/400/300" },
+  { id: 9, category: "autorais", name: "Decinho", description: "Blend de runs, Licor 43, Vodka Citron, morango e maracujá", price: "R$ 36,00", image: "https://picsum.photos/seed/decinho/400/300" },
+  { id: 10, category: "autorais", name: "Pixinguinha", description: "Cachaça de jambu, whisky com infusão de tangerina", price: "R$ 36,00", image: "https://picsum.photos/seed/pixinguinha/400/300" },
+  { id: 11, category: "autorais", name: "Radiola", description: "Rum, gin, spray de whisky, pêssego e xarope de amburana", price: "R$ 37,00", image: "https://picsum.photos/seed/radiola/400/300" },
+  { id: 12, category: "autorais", name: "Gin Tropicália", description: "Gin rosé, maracujá, sálvia e água tônica", price: "R$ 37,00", image: "https://picsum.photos/seed/gintropicalia/400/300" },
+  { id: 13, category: "autorais", name: "Melãozada", description: "Gin, maracujá, limão siciliano e Red Bull Melon", price: "R$ 40,00", image: "https://picsum.photos/seed/melaozada/400/300" },
+  { id: 14, category: "autorais", name: "Zero Culpa", description: "Gin, pera, limão e Red Bull Pomelo Sugarfree", price: "R$ 40,00", image: "https://picsum.photos/seed/zeroculpa/400/300" },
+
+  // Batidas
+  { id: 15, category: "batidas", name: "Sabores", description: "Coco / Maracujá / Pistache / Paçoca / Espanhola", price: "R$ 22,00", image: "https://picsum.photos/seed/batidas/400/300" },
+
+  // Caipirinhas
+  { id: 16, category: "caipirinhas", name: "Sabores", description: "Kiwi e Maracujá / Caju amigo / Graviola e Pêra / Uva verde / Seriguela / Morango", price: "R$ 34,00", image: "https://picsum.photos/seed/caipirinhas/400/300" },
+
+  // Chopp Brahma
+  { id: 17, category: "chopp", name: "Chopp Claro – Caldereta 300ml", description: "", price: "R$ 11,90", image: "https://picsum.photos/seed/choppclaro300/400/300" },
+  { id: 18, category: "chopp", name: "Chopp Claro – Garotinho 220ml", description: "", price: "R$ 9,90", image: "https://picsum.photos/seed/choppclaro220/400/300" },
+  { id: 19, category: "chopp", name: "Chopp Black – Caldereta 300ml", description: "", price: "R$ 12,90", image: "https://picsum.photos/seed/choppblack300/400/300" },
+  { id: 20, category: "chopp", name: "Paulista ou Carioca – Caldereta 300ml", description: "", price: "R$ 12,90", image: "https://picsum.photos/seed/paulista300/400/300" },
+  { id: 21, category: "chopp", name: "Paulista ou Carioca – Garotinho 220ml", description: "", price: "R$ 10,90", image: "https://picsum.photos/seed/paulista220/400/300" },
+
+  // Cervejas 600ml
+  { id: 22, category: "cervejas600", name: "Original", description: "", price: "R$ 19,00", image: "https://picsum.photos/seed/original/400/300" },
+  { id: 23, category: "cervejas600", name: "Spaten", description: "", price: "R$ 19,00", image: "https://picsum.photos/seed/spaten/400/300" },
+  { id: 24, category: "cervejas600", name: "Stella Artois", description: "", price: "R$ 20,00", image: "https://picsum.photos/seed/stella/400/300" },
+  { id: 25, category: "cervejas600", name: "Beck's", description: "", price: "R$ 21,00", image: "https://picsum.photos/seed/becks/400/300" },
+  { id: 26, category: "cervejas600", name: "Corona", description: "", price: "R$ 22,00", image: "https://picsum.photos/seed/corona/400/300" },
+
+  // Cervejas Long Neck
+  { id: 27, category: "cervejasln", name: "Corona", description: "", price: "R$ 16,00", image: "https://picsum.photos/seed/coronaln/400/300" },
+  { id: 28, category: "cervejasln", name: "Beck's", description: "", price: "R$ 16,00", image: "https://picsum.photos/seed/becksln/400/300" },
+  { id: 29, category: "cervejasln", name: "Stella Artois Pure Gold", description: "", price: "R$ 15,00", image: "https://picsum.photos/seed/stellaln/400/300" },
+  { id: 30, category: "cervejasln", name: "Goose Island IPA", description: "", price: "R$ 22,00", image: "https://picsum.photos/seed/gooseipa/400/300" },
+  { id: 31, category: "cervejasln", name: "Goose Island Midway", description: "", price: "R$ 21,00", image: "https://picsum.photos/seed/goosemidway/400/300" },
+  { id: 32, category: "cervejasln", name: "Corona Zero", description: "", price: "R$ 16,00", image: "https://picsum.photos/seed/coronazero/400/300" },
+
+  // Soft Drinks
+  { id: 33, category: "softdrinks", name: "Água", description: "", price: "R$ 7,00", image: "https://picsum.photos/seed/agua/400/300" },
+  { id: 34, category: "softdrinks", name: "Coca-Cola / Guaraná Lata", description: "", price: "R$ 8,00", image: "https://picsum.photos/seed/refrilata/400/300" },
+  { id: 35, category: "softdrinks", name: "Coca-Cola / Guaraná KS", description: "", price: "R$ 7,00", image: "https://picsum.photos/seed/refriks/400/300" },
+  { id: 36, category: "softdrinks", name: "Suco Del Valle", description: "", price: "R$ 8,00", image: "https://picsum.photos/seed/sucodelvalle/400/300" },
+  { id: 37, category: "softdrinks", name: "Tônica Antártica", description: "", price: "R$ 8,00", image: "https://picsum.photos/seed/tonica/400/300" },
+  { id: 38, category: "softdrinks", name: "Red Bull", description: "Energy Drink", price: "R$ 17,00", image: "https://picsum.photos/seed/redbull/400/300" },
 ];
 
 const galleryImages = [
@@ -155,7 +134,7 @@ const reviews = [
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeCategory, setActiveCategory] = useState("petiscos");
+  const [activeCategory, setActiveCategory] = useState("classicos");
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -530,39 +509,29 @@ export default function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-2"
           >
             {menuItems
               .filter((item) => item.category === activeCategory)
               .map((item) => (
                 <div
                   key={item.id}
-                  className="flex gap-4 bg-gray-900 p-4 rounded-xl border border-gray-800 hover:border-boteco-red transition-colors group"
+                  className="flex flex-col justify-center py-4 border-b border-dashed border-gray-700 hover:bg-gray-800/50 transition-colors px-4 rounded-lg group"
                 >
-                  <div className="w-24 h-24 flex-shrink-0 overflow-hidden rounded-lg">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      referrerPolicy="no-referrer"
-                    />
+                  <div className="flex justify-between items-end mb-1 gap-4">
+                    <h3 className="font-display text-2xl text-white tracking-wide group-hover:text-boteco-yellow transition-colors">
+                      {item.name}
+                    </h3>
+                    <div className="flex-grow border-b-2 border-dotted border-gray-600 mb-2 opacity-50"></div>
+                    <span className="font-bold text-boteco-yellow text-xl whitespace-nowrap">
+                      {item.price}
+                    </span>
                   </div>
-                  <div className="flex-grow flex flex-col justify-between">
-                    <div>
-                      <div className="flex justify-between items-start mb-1">
-                        <h3 className="font-display text-xl text-white">
-                          {item.name}
-                        </h3>
-                        <span className="font-bold text-boteco-yellow whitespace-nowrap ml-4">
-                          {item.price}
-                        </span>
-                      </div>
-                      <p className="text-gray-400 text-sm leading-snug">
-                        {item.description}
-                      </p>
-                    </div>
-                    <div className="border-b border-dashed border-gray-700 mt-3"></div>
-                  </div>
+                  {item.description && (
+                    <p className="text-gray-400 text-sm leading-snug italic mt-1">
+                      {item.description}
+                    </p>
+                  )}
                 </div>
               ))}
           </motion.div>
