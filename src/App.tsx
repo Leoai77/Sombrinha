@@ -408,8 +408,8 @@ export default function App() {
             >
               <div className="absolute -inset-4 bg-boteco-yellow rounded-lg transform rotate-3"></div>
               <img
-                src="https://picsum.photos/seed/boteco-historia/800/600"
-                alt="Ambiente do Boteco"
+                src="https://i.ibb.co/R4BWH9MQ/Save-Clip-App-643531827-17930226828198206-6579603215994543764-n.jpg"
+                alt="Nossa História"
                 className="relative rounded-lg shadow-xl w-full object-cover h-96 grayscale hover:grayscale-0 transition-all duration-500"
                 referrerPolicy="no-referrer"
               />
